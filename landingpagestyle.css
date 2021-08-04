@@ -15,7 +15,7 @@ header {
     width: 100%;
     border-bottom: 2px solid black;
     background: black;
-    color: chartreuse;
+    color: rgb(0, 204, 255);
 }
 
 button{
