@@ -1,0 +1,29 @@
+{
+    box-sizing: border-box;
+   }
+body{
+    background-color: black;
+}
+
+header {
+    font-size: 69px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background: black;
+    color: chartreuse;
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    color: chartreuse;
+
+text {
+    font-size: 30px;
+    color: chartreuse;
+}
