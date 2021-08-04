@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+   }
+body{
+    background-color: black;
+}
+
+header {
+    font-size: 69px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background: black;
+    color: chartreuse;
+}
+
+button{
+    /* display: none; */
+    width: 200px;
+    height: 200px;
+}
+
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    color: chartreuse;
+}
+
+.card {
+    font-style: none;
+    flex: 0 1 24%;
+    width: 200px;
+    margin: 10px;
+    border: 1px solid chartreuse;
+}
+
+.text {
+    font-size: 30px;
+    color: chartreuse;
+}
+
+
+
