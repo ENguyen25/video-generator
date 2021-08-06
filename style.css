@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+}
+.sidebar {
+    padding: 1em;
+    margin-right: 5em;
+    border-style: solid;
+    background-color: aqua;
+    height:100%;
+
+}
+.mainbar {
+    padding: 0.5em;
+    margin-right: 5em;
+}
+.search {
+    background-color: white;
+    margin-left: 40%;
+    font-size: 20px;
+    
+
+}
+.search:hover{
+    background-color: teal;
+}
+
+h2 {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:15px ;
+}
+.abc {
+    padding: 1em;
+    margin-right: 5em;
+    border-style: solid;
+    background-color: aqua;
+}
+
+.title {
+    font-family: sans-serif;
+    font-size: 30px;
+
+}
+
+
+
+
