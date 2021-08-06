@@ -45,3 +45,38 @@ button{
     font-size: 40px;
     color: chartreuse;
 }
+
+.search-engine {
+    background-color: rgb(135, 217, 245);
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    border: 6px solid rgb(0, 0, 0);
+    padding: 10px;
+    
+    }
+     
+#search-bar {
+    border: 3px solid rgb(0, 0, 0);
+
+}
+#video {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.click {
+    border: 2px solid rgb(0, 0, 0);
+    padding: 0.2em;
+    width: 20%;
+    height: 20%;
+
+    
+
+}
+input:focus {
+    background-color: pink;
+    border: 2px solid black;
+
+  }
+
+
