@@ -1,5 +1,4 @@
-
-* {
+{
     box-sizing: border-box;
    }
 body{
@@ -15,33 +14,16 @@ header {
     width: 100%;
     border-bottom: 2px solid black;
     background: black;
-    color: rgb(0, 204, 255);
-}
+    color: chartreuse;
 
-button{
-    /* display: none; */
-    width: 200px;
-    height: 200px;
-}
-
-
-.main {
+main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: black;
     color: chartreuse;
-}
 
-.card {
-    font-style: none;
-    flex: 0 1 24%;
-    width: 200px;
-    margin: 10px;
-    border: 1px solid chartreuse;
-}
-
-.text {
-    font-size: 40px;
+text {
+    font-size: 30px;
     color: chartreuse;
 }
