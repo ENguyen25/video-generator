@@ -1,9 +1,10 @@
-var apiKey = "AIzaSyBWa3fPm93dB1MhTPCKsvnKOCSeR99SNdA";
+var apiKey = "AIzaSyB5dgvfBLnsT72mUqKAM3YPCMpdmoD1t3I";
 var generatedResults = [];
 var video = document.querySelector(".video");
 var container = document.getElementById(".container")
 var submitButton = document.querySelector(".click");
 var searchBar = document.querySelector("#search-bar");
+var listOfVideos = document.querySelector(".list-of-videos");
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
@@ -14,16 +15,35 @@ submitButton.addEventListener('click', function(event) {
 });
 
 function getYouTubeAPI(searchTerm) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}&key=${apiKey}`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q=${searchTerm}&key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
         console.log(data.items);
         generatedResults = data.items;
-        console.log(data.items[2].id.videoId);
-        onYouTubeIframeAPIReady(generatedResults);
+        createVideoList(generatedResults);
+        // onYouTubeIframeAPIReady(generatedResults);
     });
 }
 
+function createVideoList(generated) {
+    $(".list-of-videos").empty();
+    console.log(generated)
+    for (var i = 0; i < generated.length; i++) {
+        $("<div>").attr(
+            {
+                id: generated[i].id.videoId,
+                class: "video-results",
+            }
+        ).appendTo(".list-of-videos");
+        $("<h1>").attr("class", "header").text(`${generated[i].snippet.title}`).appendTo(`#${generated[i].id.videoId}`);
+        $("<div>").attr("class", "thumbnails").css("background-image", `url(${generated[i].snippet.thumbnails.medium.url})`).appendTo(`#${generated[i].id.videoId}`);
+    }
+}
+
+listOfVideos.addEventListener('click', function(event) {
+    var onClick = event.target;
+    console.log(onClick);
+})
 
 var tag = document.createElement('script');
 
@@ -35,7 +55,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady(results) {
-
+    console.log(results);
     for (var i = 0; i < results.length; i++) {
         player = new YT.Player(`player${i}`, {
             height: '335',
