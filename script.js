@@ -1,14 +1,29 @@
 var apiKey = "AIzaSyBWa3fPm93dB1MhTPCKsvnKOCSeR99SNdA";
 var generatedResults = [];
+var video = document.querySelector(".video");
+var container = document.getElementById(".container")
+var submitButton = document.querySelector(".click");
+var searchBar = document.querySelector("#search-bar");
 
-fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=cats&key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-    console.log(data.items);
-    generatedResults = data.items;
-    console.log(data.items[2].id.videoId);
-    onYouTubeIframeAPIReady(generatedResults);
+submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    // location.href = "index2.html";
+    var searchResults = searchBar.value;
+    console.log(searchResults);
+    getYouTubeAPI(searchResults);
 });
+
+function getYouTubeAPI(searchTerm) {
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}&key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+        console.log(data.items);
+        generatedResults = data.items;
+        console.log(data.items[2].id.videoId);
+        onYouTubeIframeAPIReady(generatedResults);
+    });
+}
+
 
 var tag = document.createElement('script');
 
@@ -20,16 +35,17 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady(results) {
+
     for (var i = 0; i < results.length; i++) {
         player = new YT.Player(`player${i}`, {
-            height: '390',
-            width: '640',
+            height: '335',
+            width: '550',
             videoId: results[i].id.videoId,
             playerVars: {
-            'playsinline': 1
+            'playsinline': 1,
+            'autoplay': 0
             },
             events: {
-            'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
             }
         });
@@ -51,6 +67,7 @@ if (event.data == YT.PlayerState.PLAYING && !done) {
     done = true;
 }
 }
+
 function stopVideo() {
 player.stopVideo();
 }
