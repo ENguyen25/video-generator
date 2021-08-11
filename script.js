@@ -1,12 +1,12 @@
 var apiKey = "AIzaSyB5dgvfBLnsT72mUqKAM3YPCMpdmoD1t3I";
 var generatedResults = [];
 var video = document.querySelector(".video");
-var container = document.querySelector(".container")
+var container = document.querySelector(".lower-section");
 var submitButton = document.querySelector(".click");
 var searchBar = document.querySelector("#search-bar");
-var submitComment = document.querySelector("#submit-comment")
+var submitComment = document.querySelector("#submit-comment");
 var comment = document.querySelector("#comment");
-var commentContainer = document.querySelector(".comment-container")
+var commentContainer = document.querySelector(".comment-section")
 var commentArray = [];
 var listOfVideos = document.querySelector(".list-of-videos");
 
@@ -101,13 +101,13 @@ player.stopVideo();
 localStorage.getItem("comments") ? commentArray = JSON.parse(localStorage.getItem("comments")) : null;
 
 for (var i = 0; i < commentArray.length; i++) {
-    $("<div>").addClass("comments-list").text(commentArray[i]).appendTo(".comment-container");
+    $("<div>").addClass("comments-list").text(commentArray[i]).appendTo(".comment-section");
 }
 
 submitComment.addEventListener('click', function(event) {
     event.preventDefault();
     var newComment = comment.value;
-    $("<div>").addClass("comments-list").text(newComment).appendTo(".comment-container");
+    $("<div>").addClass("comments-list").text(newComment).appendTo(".comment-section");
     commentArray.push(newComment);
     localStorage.setItem('comments', JSON.stringify(commentArray));
 })

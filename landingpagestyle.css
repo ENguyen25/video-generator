@@ -1,52 +1,3 @@
-
-/* * {
-    box-sizing: border-box;
-   } */
-
-/* body{
-    background-color: black;
-} */
-
-/* header {
-    font-size: 69px;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    border-bottom: 2px solid black;
-    background: black;
-    color: rgb(0, 204, 255);
-}
-
-button{
-    /* display: none; */
-    /* width: 200px;
-    height: 200px;
-}
-
-
-.main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: black;
-    color: chartreuse;
-} */
-
-/* .card {
-    font-style: none;
-    flex: 0 1 24%;
-    width: 200px;
-    margin: 10px;
-    border: 1px solid chartreuse;
-}
-
-.text {
-    font-size: 40px;
-    color: chartreuse;
-} */
-
 .search-engine {
     background-color: rgb(135, 217, 245);
     width: 40%;
@@ -55,6 +6,7 @@ button{
     border: 6px solid rgb(0, 0, 0);
     padding: 10px;
     }
+
 #search-bar {
     border: 3px solid rgb(0, 0, 0);
 }
@@ -72,7 +24,7 @@ input:focus {
     border: 2px solid black;
   }
 
-.container {
+.lower-section {
     display: flex;
     flex-direction: row;
 }
