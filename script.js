@@ -6,6 +6,7 @@ var submitButton = document.querySelector(".click");
 var searchBar = document.querySelector("#search-bar");
 var submitComment = document.querySelector("#submit-comment")
 var comment = document.querySelector("#comment");
+var commentContainer = document.querySelector(".comment-container")
 var commentArray = [];
 var listOfVideos = document.querySelector(".list-of-videos");
 
@@ -48,6 +49,7 @@ listOfVideos.addEventListener('click', function(event) {
     $(".video").empty();
     $("<div>").attr("id", "player").appendTo(".video");
     $('html,body').scrollTop(0);
+    commentContainer.classList.remove("hidden");
     onYouTubeIframeAPIReady(onClick);
 })
 
@@ -96,11 +98,16 @@ function stopVideo() {
 player.stopVideo();
 }
 
+localStorage.getItem("comments") ? commentArray = JSON.parse(localStorage.getItem("comments")) : null;
+
+for (var i = 0; i < commentArray.length; i++) {
+    $("<div>").addClass("comments-list").text(commentArray[i]).appendTo(".comment-container");
+}
+
 submitComment.addEventListener('click', function(event) {
+    event.preventDefault();
     var newComment = comment.value;
+    $("<div>").addClass("comments-list").text(newComment).appendTo(".comment-container");
     commentArray.push(newComment);
-    console.log(commentArray)
     localStorage.setItem('comments', JSON.stringify(commentArray));
 })
-
-localStorage.getItem("comments") ? commentArray = JSON.parse(localStorage.getItem("comments")) : null;
