@@ -103,3 +103,7 @@ img {
 .list-of-videos {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}
