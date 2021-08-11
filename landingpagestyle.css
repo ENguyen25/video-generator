@@ -74,12 +74,7 @@ input:focus {
 
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.video {
-    margin: 10px 0;
+    flex-direction: row;
 }
 
 .video-results {
@@ -92,6 +87,19 @@ input:focus {
     height: 180px;
 }
 
+img {
+    object-fit: fill;
+}
+
 .header {
     font-size: small;
+}
+
+.video {
+    width: -webkit-fill-available;
+    text-align: center;
+}
+
+.list-of-videos {
+    cursor: pointer;
 }
