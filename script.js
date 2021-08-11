@@ -1,27 +1,29 @@
 var apiKey = "AIzaSyB5dgvfBLnsT72mUqKAM3YPCMpdmoD1t3I";
 var generatedResults = [];
 var video = document.querySelector(".video");
-var container = document.getElementById(".container")
+var container = document.querySelector(".container")
 var submitButton = document.querySelector(".click");
 var searchBar = document.querySelector("#search-bar");
+var submitComment = document.querySelector("#submit-comment")
+var comment = document.querySelector("#comment");
+var commentArray = [];
 var listOfVideos = document.querySelector(".list-of-videos");
+
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
-    // location.href = "index2.html";
     var searchResults = searchBar.value;
     console.log(searchResults);
     getYouTubeAPI(searchResults);
 });
 
 function getYouTubeAPI(searchTerm) {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q=${searchTerm}&key=${apiKey}`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${searchTerm}&key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
         console.log(data.items);
         generatedResults = data.items;
         createVideoList(generatedResults);
-        // onYouTubeIframeAPIReady(generatedResults);
     });
 }
 
@@ -35,14 +37,18 @@ function createVideoList(generated) {
                 class: "video-results",
             }
         ).appendTo(".list-of-videos");
-        $("<h1>").attr("class", "header").text(`${generated[i].snippet.title}`).appendTo(`#${generated[i].id.videoId}`);
+        $("<h1>").attr("class", "header").html(`${generated[i].snippet.title}`).appendTo(`#${generated[i].id.videoId}`);
         $("<div>").attr("class", "thumbnails").css("background-image", `url(${generated[i].snippet.thumbnails.medium.url})`).appendTo(`#${generated[i].id.videoId}`);
     }
 }
 
 listOfVideos.addEventListener('click', function(event) {
-    var onClick = event.target;
+    var onClick = event.target.parentElement.id;
     console.log(onClick);
+    $(".video").empty();
+    $("<div>").attr("id", "player").appendTo(".video");
+    $('html,body').scrollTop(0);
+    onYouTubeIframeAPIReady(onClick);
 })
 
 var tag = document.createElement('script');
@@ -54,23 +60,21 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
-function onYouTubeIframeAPIReady(results) {
-    console.log(results);
-    for (var i = 0; i < results.length; i++) {
-        player = new YT.Player(`player${i}`, {
-            height: '335',
-            width: '550',
-            videoId: results[i].id.videoId,
-            playerVars: {
-            'playsinline': 1,
-            'autoplay': 0
-            },
-            events: {
-            'onStateChange': onPlayerStateChange
-            }
-        });
+function onYouTubeIframeAPIReady(videoResult) {
+    console.log(typeof videoResult);
+    player = new YT.Player("player", {
+        height: '450',
+        width: '750',
+        videoId: videoResult,
+        playerVars: {
+        'playsinline': 1,
+        'autoplay': 0
+        },
+        events: {
+        'onStateChange': onPlayerStateChange
+        }
+    });
     }
-}
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
@@ -92,3 +96,11 @@ function stopVideo() {
 player.stopVideo();
 }
 
+submitComment.addEventListener('click', function(event) {
+    var newComment = comment.value;
+    commentArray.push(newComment);
+    console.log(commentArray)
+    localStorage.setItem('comments', JSON.stringify(commentArray));
+})
+
+localStorage.getItem("comments") ? commentArray = JSON.parse(localStorage.getItem("comments")) : null;
