@@ -101,13 +101,13 @@ player.stopVideo();
 localStorage.getItem("comments") ? commentArray = JSON.parse(localStorage.getItem("comments")) : null;
 
 for (var i = 0; i < commentArray.length; i++) {
-    $("<div>").addClass("comments-list").text(commentArray[i]).appendTo(".comment-section");
+    $("<div>").addClass("comments-list card-panel blue-text text-darken-2").text(commentArray[i]).appendTo(".comment-section");
 }
 
 submitComment.addEventListener('click', function(event) {
     event.preventDefault();
     var newComment = comment.value;
-    $("<div>").addClass("comments-list").text(newComment).appendTo(".comment-section");
+    $("<div>").addClass("comments-list card-panel blue-text text-darken-2").text(newComment).appendTo(".comment-section");
     commentArray.push(newComment);
     localStorage.setItem('comments', JSON.stringify(commentArray));
 })
