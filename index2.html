@@ -5,45 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landingpagestyle.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <div id="player0"></div>
-    <div id="player1"></div>
-    <div id="player2"></div>
-    <div id="player3"></div>
-    <div id="player4"></div>
-    
-    <div class="side-bar">
-        <h2>Displaying Colors</h2>
-        <p>The w3-color classes can be used to add colors to any HTML element.</p>
-        <button class="search">search</button>
-        <p>ratings <input type="text"/> </p>
+    <header>'Explore Our Favorite API's 🐱‍👓 '</header>
 
+    <form action="" class="search-engine">
+        <h1>Video generator Search Engine</h1>
+        <input id="dm-search" type="text" placeholder="Search!"></input> <br><br>
+        <button type="submit" class="dm-submit">Click Me</button>
+    </form>
+
+    <div class="container">
+        <div class="dailymotion-videos"></div>
+        <div class="video" id="player"></div>
     </div>
 
-    <div class="mainbar">
-        <h3 class="title">description of video</h3>
-        <a href="landingpage.html"><button>Back</button></a>
-    </div>
-
-    <div class="right-side">
-        <div class="abc">
-            <h1>project</h1>
-            <p>absskjfjg ndkj</p>
-        </div>
-        <div class="1234">
-            <h1>my first practice</h1>
-            <p>practiceeeee</p>
-        </div>
-        <p>London is the capital city of England.</p>
-        <div id="player"></div>
-    </div>
 
 </body>
-<script src="script.js"></script>
+<script src="https://api.dmcdn.net/all.js"></script>
+<script src="script2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </html>

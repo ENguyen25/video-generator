@@ -39,6 +39,6 @@ Styling next page
 
 
 Links:
-Deployed
-GitHub repo: https://github.com/ENguyen25/video-generator 
+Deployed at: https://laxminla.github.io/video-generator/
+GitHub repo: https://github.com/laxminla/video-generator.git 
 
